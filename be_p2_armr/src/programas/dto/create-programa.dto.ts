@@ -65,9 +65,6 @@ export class CreateProgramaDto {
   @IsNotEmpty({ message: 'El estado no debe estar vacío' })
   readonly estado: string;
 
-  @ApiProperty()
-  @IsNotEmpty({ message: 'El área de conocimiento no debe estar vacío' })
-  readonly areaConocimiento: string;
-
+ 
 }
 
