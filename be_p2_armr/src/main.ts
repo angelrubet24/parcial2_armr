@@ -12,15 +12,15 @@ async function bootstrap() {
   app.enableCors();
 
   const config = new DocumentBuilder()
-    .setTitle('Parcial 2 - Desarrollo de Aplicaciones Int/Internet II - HLMCH')
+    .setTitle('Parcial 2 - Desarrollo de Aplicaciones Int/Internet II - ARMR')
     .setDescription(
-      'API Rest de la materia Desarrollo de Aplicación Int/Internet II - HLMCH',
+      'API Rest de la materia Desarrollo de Aplicación Int/Internet II - ARMR',
     )
     .setVersion('1.0')
     .addTag('')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('apidoc', app, documentFactory);
+  SwaggerModule.setup('api', app, documentFactory);
 
   await app.listen(process.env.PORT ?? 0);
   console.log(`App correindo en el puerto: ${await app.getUrl()}`);

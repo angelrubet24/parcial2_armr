@@ -13,48 +13,45 @@ import {
 @Entity('programas')
 export class Programa {
   @PrimaryGeneratedColumn('identity')
-  id: number;
+  id!: number;
 
   @Column('integer', { name: 'id_nivel_academico' })
-  idNivelAcademico: number;
+  idNivelAcademico!: number;
 
   @Column('varchar', { length: 100 })
-  nombre: string;
+  nombre!: string;
 
   @Column('varchar', { length: 2000 })
-  descripcion: string;
+  descripcion!: string;
 
   @Column('integer')
-  version: number;
+  version!: number;
 
   @Column('integer', { name: 'duracion_meses' })
-  duracionMeses: number;
+  duracionMeses!: number;
 
   @Column('decimal', { precision: 10, scale: 2 })
-  costo: number;
+  costo!: number;
 
   @Column('date', { name: 'fecha_inicio' })
-  fechaInicio: Date;
+  fechaInicio!: Date;
 
   @Column('varchar', { length: 20 })
-  estado: string;
-
-  @Column('varchar', { length: 20 })
-  areaConocimiento: string;
+  estado!: string;
 
   @CreateDateColumn({ name: 'fecha_creacion' })
-  fechaCreacion: Date;
+  fechaCreacion!: Date;
 
   @UpdateDateColumn({ name: 'fecha_modificacion' })
-  fechaModificacion: Date;
+  fechaModificacion!: Date;
 
   @DeleteDateColumn({ name: 'fecha_eliminacion' })
-  fechaEliminacion: Date;
+  fechaEliminacion!: Date;
 
   @ManyToOne(
     () => NivelesAcademico,
     (nivelesacademico) => nivelesacademico.programas,
   )
   @JoinColumn({ name: 'id_nivel_academico', referencedColumnName: 'id' })
-  nivelesacademico: NivelesAcademico;
+  nivelesacademico!: NivelesAcademico;
 }

@@ -15,12 +15,6 @@ import {
 } from 'primevue'
 import { computed, ref, watch } from 'vue'
 
-const areasConocimineto = [
-  { label: 'derecho', value: 'Derecho' },
-  { label: 'ingenieria', value: 'Ingenieria' },
-  { label: 'economia', value: 'Economia' },
-  { label: 'salud', value: 'Salud' },
-]
 
 const estados = [
   { label: 'en planificacion', value: 'En planificacion' },
@@ -71,7 +65,6 @@ async function handleSave() {
       costo: programa.value.costo,
       fechaInicio: programa.value.fechaInicio,
       estado: programa.value.estado,
-      areaConocimiento: programa.value.areaConocimiento,
     }
     if (props.modoEdicion) {
       await http.patch(`${ENDPOINT}/${programa.value.id}`, body)
@@ -199,18 +192,6 @@ watch(
         />
       </div>
 
-      <div class="flex items-center gap-4 mb-4">
-        <label for="areaConocimiento" class="font-semibold w-3">Area Conocimiento</label>
-        <Dropdown
-          id="areaConocimiento"
-          v-model="programa.areaConocimiento"
-          :options="areasConocimineto"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Seleccionar Modalidad"
-          class="flex-auto"
-        />
-      </div>
 
       <div class="flex justify-end gap-2">
         <Button

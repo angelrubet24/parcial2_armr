@@ -8,7 +8,6 @@ import { UpdateProgramaDto } from './dto/update-programa.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Programa } from './entities/programa.entity';
 import { Repository } from 'typeorm';
-import { NivelesAcademico } from 'src/niveles_academicos/entities/niveles_academico.entity';
 
 @Injectable()
 export class ProgramasService {
@@ -28,15 +27,8 @@ export class ProgramasService {
     return this.programasRepository.save(programa);
   }
 
-  async findAll(areaConocimiento?: string): Promise<Programa[]> {
-  const where: any = {};
-  
-  if (areaConocimiento) {
-    where.areaConocimiento = areaConocimiento;
-  }
-
+  async findAll(): Promise<Programa[]> {
   return this.programasRepository.find({
-    where,
     relations: { nivelesacademico: true },
     select: {
       id: true,
@@ -47,10 +39,13 @@ export class ProgramasService {
       costo: true,
       fechaInicio: true,
       estado: true,
-      areaConocimiento: true,
       nivelesacademico: { id: true, nombre: true },
     },
-    order: { nombre: 'ASC' },
+    order: { 
+      nivelesacademico: {
+         nombre: 'ASC', 
+      },
+     },
   });
 }
 

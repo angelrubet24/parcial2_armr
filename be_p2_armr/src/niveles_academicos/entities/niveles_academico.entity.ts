@@ -12,23 +12,23 @@ import {
 @Entity('niveles_academicos')
 export class NivelesAcademico {
   @PrimaryGeneratedColumn('identity')
-  id: number;
+  id!: number;
 
   @Column('varchar', { length: 20 })
-  nombre: string;
+  nombre!: string;
 
   @Column('varchar', { length: 500, nullable: true })
-  descripcion: string;
+  descripcion!: string;
 
   @CreateDateColumn({ name: 'fecha_creacion' })
-  fechaCreacion: Date;
+  fechaCreacion!: Date;
 
   @UpdateDateColumn({ name: 'fecha_modificacion' })
-  fechaModificacion: Date;
+  fechaModificacion!: Date;
 
   @DeleteDateColumn({ name: 'fecha_eliminacion' })
-  fechaEliminacion: Date;
+  fechaEliminacion!: Date;
 
   @OneToMany(() => Programa, (programa) => programa.idNivelAcademico)
-  programas: Programa[];
+  programas!: Programa[];
 }
