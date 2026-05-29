@@ -57,15 +57,16 @@ defineExpose({ obtenerLista })
       <thead>
         <tr>
           <th>Nro.</th>
-          <th>Nombre</th>
-          <th>Nivel Academico</th>
-          <th>Descripcion</th>
-          <th>Version</th>
-          <th>Duracion en Meses</th>
-          <th>Costo</th>
-          <th>Fecha de inico</th>
-          <th>Estado</th>
-          <th>Acciones</th>
+          <th>NOMBRE</th>
+          <th>NIVEL ACADEMICO</th>
+          <th>DESCRIPCION</th>
+          <th>VERSION</th>
+          <th>DURACION EN MESES</th>
+          <th>COSTO</th>
+          <th>FECHA DE INICIO</th>
+          <th>MODALIDAD</th>
+          <th>ESTADO</th>
+          <th>ACCIONES</th>
         </tr>
       </thead>
       <tbody>
@@ -78,6 +79,7 @@ defineExpose({ obtenerLista })
           <td>{{ programa.duracionMeses }}</td>
           <td>{{ programa.costo }}</td>
           <td>{{ programa.fechaInicio }}</td>
+          <td>{{ programa.modalidadClases }}</td>
           <td>{{ programa.estado }}</td>
           <td>
             <Button icon="pi pi-pencil" aria-label="Editar" text @click="emitirEdicion(programa)" />

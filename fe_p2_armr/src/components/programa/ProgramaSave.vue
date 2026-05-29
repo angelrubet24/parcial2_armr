@@ -22,6 +22,11 @@ const estados = [
   { label: 'finalizado', value: 'Finalizado' },
 ]
 
+const modalidadesClases = [
+  { label: 'Presencial', value: 'PRESENCIAL' },
+  { label: 'Virtual', value: 'VIRTUAL' },
+]
+
 const ENDPOINT = 'programas'
 const props = defineProps({
   mostrar: Boolean,
@@ -65,6 +70,7 @@ async function handleSave() {
       costo: programa.value.costo,
       fechaInicio: programa.value.fechaInicio,
       estado: programa.value.estado,
+      modalidadClases: programa.value.modalidadClases,
     }
     if (props.modoEdicion) {
       await http.patch(`${ENDPOINT}/${programa.value.id}`, body)
@@ -191,7 +197,21 @@ watch(
           class="flex-auto"
         />
       </div>
+      <div class="flex items-center gap-4 mb-4">
+       <label for="modalidadClases" class="font-semibold w-3">
+           Modalidad
+         </label>
 
+      <Dropdown
+        id="modalidadClases"
+        v-model="programa.modalidadClases"
+        :options="modalidadesClases"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Seleccionar modalidad"
+        class="flex-auto"
+      />
+    </div>
 
       <div class="flex justify-end gap-2">
         <Button

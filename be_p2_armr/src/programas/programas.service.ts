@@ -39,6 +39,7 @@ export class ProgramasService {
       costo: true,
       fechaInicio: true,
       estado: true,
+      modalidadClases: true,
       nivelesacademico: { id: true, nombre: true },
     },
     order: { 

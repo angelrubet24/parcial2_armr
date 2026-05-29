@@ -65,6 +65,10 @@ export class CreateProgramaDto {
   @IsNotEmpty({ message: 'El estado no debe estar vacío' })
   readonly estado: string;
 
- 
+ @ApiProperty({
+  example: 'PRESENCIAL',
+  enum: ['PRESENCIAL', 'VIRTUAL'],
+ })
+ modalidadClases!: string;
 }
 

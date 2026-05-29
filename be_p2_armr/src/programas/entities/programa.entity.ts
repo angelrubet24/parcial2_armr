@@ -39,6 +39,13 @@ export class Programa {
   @Column('varchar', { length: 20 })
   estado!: string;
 
+  @Column({name: 'modalidad_clases',
+    type: 'varchar',
+    length: 20,
+    nullable: true,
+  })
+  modalidadClases!: string;
+
   @CreateDateColumn({ name: 'fecha_creacion' })
   fechaCreacion!: Date;
 
